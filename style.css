@@ -1,0 +1,203 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+video#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1; 
+    filter: brightness(0.5); 
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay for text contrast */
+    z-index: -1;
+}
+
+.quiz-container{
+    width: 100%;
+    max-width: 600px;
+    background: transparent;
+    padding: 500px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+#quiz-screen {
+    background: #4e4d4d;
+    border-radius: 10px;
+    padding: 20px;
+    width: 600px;
+    height: auto; /* Let the height adjust dynamically */
+    box-shadow: 0px 8px 20px rgba(202, 189, 189, 0.2); /* Add shadow for depth */
+    margin-top: 20px;
+    height: 400px;
+    align-items: center; /* Center the content */
+    gap: 20px; /* Add space between elements */
+    border-radius: 40px;
+}
+
+
+.quiz-visible {
+    display: flex; 
+}
+
+
+button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 100px;
+    background: #062f3f;
+    color: white;
+    font-weight: bolder;
+    font-size: 32px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover{
+    background: #73bbd8;
+}
+
+button:disabled{
+    cursor: not-allowed;
+}
+#quiz-heading{
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    font-size: 4rem;
+    color: #361a2b; /* Change this to your desired text color */
+    text-shadow: 
+        0 0 5px rgba(52, 152, 219, 0.8),  /* Inner blur with the same color */
+        0 0 10px rgba(52, 152, 219, 0.6), /* Medium blur */
+        0 0 15px rgba(52, 152, 219, 0.4); /* Outer blur */
+}
+
+.letter {
+    display: inline-block;
+    opacity: 0; 
+    transform: translate3d(-50px, 0, 0); 
+    transition: opacity 2s ease, transform 2s ease; 
+    margin: 2px;
+}
+
+.letter.visible {
+    opacity: 1; 
+    transform: translate3d(0, 0, 0); 
+}
+
+#next-btn{
+    padding: 20px;
+    margin: 30px;
+    height: 70px;
+    width: 200px;
+    
+}
+
+#question {
+    font-family: 'Georgia', serif; 
+    font-size: 1.5rem; 
+    color: #ffffff; 
+    margin-bottom: 20px; 
+}
+
+#answer {
+    display: flex;
+    flex-direction: column; /* Arrange buttons vertically */
+    gap: 10px; /* Add space between buttons */
+    width: 100%; /* Make buttons span the container */
+}
+
+.answer-btn {
+    display: flex;
+    align-items: center; /* Align bullet with text */
+    gap: 10px; /* Space between bullet and text */
+    padding: 10px;
+    margin: 0; /* Remove extra margin */
+    border-radius: 10px;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.3s; /* Smooth effects */
+}
+
+.answer-btn:hover {
+    background: #062f3f;
+    transform: scale(1.05);
+}
+
+.answer-btn:disabled {
+    background: #d3d3d3;
+    cursor: not-allowed;
+}
+
+
+#result-screen {
+    background: #4e4d4d; 
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); 
+}
+
+#result-screen h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+#restart-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #062f3f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#restart-btn:hover {
+    background: #73bbd8;
+}
+
+#result-message {
+    font-size: 1.2rem; /* Adjust font size */
+    font-weight: bold; /* Make it stand out */
+    color: #333; /* Dark gray color */
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out; /* Smooth fade-in effect */
+}
+
+/* Optional: Fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
